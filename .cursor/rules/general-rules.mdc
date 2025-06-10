@@ -1,0 +1,7 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+after writing the code, just run wails dev to run the application. you dont have to use pnpm or another package managers. wails dev does it all.  just run wails dev not any extra command
+

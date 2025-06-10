@@ -1,0 +1,16 @@
+{
+  "books": [
+    {
+      "id": "1749344114212709400",
+      "title": "concurrency-primer",
+      "author": "rare author",
+      "filePath": "C:\\Users\\rareb\\Desktop\\concurrency-primer.pdf",
+      "coverPath": "",
+      "description": "",
+      "format": "pdf",
+      "addedAt": "2025-06-08T05:55:14.2127094+05:00",
+      "lastOpenedAt": "2025-06-10T23:53:49.427983+05:00"
+    }
+  ],
+  "path": ""
+}
