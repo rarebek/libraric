@@ -1,0 +1,13 @@
+{
+    "version": "1.0.0",
+    "description": "amazing tool to manage and read your e-books",
+    "homepage": "https://github.com/rarebek/libraric",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/rarebek/libraric/releases/download/v1/libraric-windows.zip",
+            "bin": "libraric.exe",
+            "hash": "A8D6740638A0CF26906406544237D220F9EAABD22F9309A8ED345364E1BA34D8"
+        }
+    }
+}
