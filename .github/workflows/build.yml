@@ -71,6 +71,10 @@ jobs:
         if: runner.os == 'Windows'
         shell: pwsh
         run: |
+          $bin = Get-ChildItem -Path build\bin -Name | Where-Object { $_ -eq 'libraric' -or $_ -eq 'libraric.exe' }
+          if ($bin -eq 'libraric') {
+            Rename-Item -Path build\bin\libraric -NewName libraric.exe
+          }
           Compress-Archive -Path build\bin\* -DestinationPath ${{ matrix.build.artifact_name }}.zip -Force
 
       # upload zip artifact
