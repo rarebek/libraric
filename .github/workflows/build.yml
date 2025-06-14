@@ -60,18 +60,32 @@ jobs:
           go-version: '1.22'
           package: false
 
-      # upload resulting binary as artifact
+      # archive into single zip per platform
+      - name: create zip archive (non-windows)
+        if: runner.os != 'Windows'
+        run: |
+          zip -r ${{ matrix.build.artifact_name }}.zip build/bin
+        shell: bash
+
+      - name: create zip archive (windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          Compress-Archive -Path build\bin\* -DestinationPath ${{ matrix.build.artifact_name }}.zip -Force
+
+      # upload zip artifact
       - name: upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.build.artifact_name }}
-          path: build/bin/**
+          path: ${{ matrix.build.artifact_name }}.zip
 
+      # attach zip to release
       - name: upload to github release
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v1
         with:
-          files: build/bin/**
+          files: ${{ matrix.build.artifact_name }}.zip
           generate_release_notes: true
           draft: false
         env:
