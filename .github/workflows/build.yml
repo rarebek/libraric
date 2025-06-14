@@ -43,13 +43,9 @@ jobs:
         with:
           node-version: '20'
           cache: 'pnpm'
-      - run: corepack enable
 
-      - name: setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-          run_install: false
+      - name: install pnpm
+        run: npm install -g pnpm@8
 
       # install frontend deps
       - run: pnpm install --frozen-lockfile
