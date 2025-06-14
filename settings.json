@@ -1,0 +1,23 @@
+{
+  "theme": "dark",
+  "font": {
+    "family": "Geist Mono SemiBold",
+    "size": "20px"
+  },
+  "colorScheme": {
+    "dark": {
+      "background": "#070e40",
+      "error": "#cf6679",
+      "foreground": "#ffffff",
+      "primary": "#bb86fc",
+      "secondary": "#03dac6"
+    },
+    "light": {
+      "background": "#94e1dc",
+      "error": "#b00020",
+      "foreground": "#000000",
+      "primary": "#6200ee",
+      "secondary": "#03dac6"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+# ignore build artifacts and dependencies
+build
+node_modules
+frontend/dist
+frontend/node_modules

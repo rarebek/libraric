@@ -1,0 +1,38 @@
+{
+  "books": [
+    {
+      "id": "1749665699263940400",
+      "title": "concurrency-primer",
+      "author": "",
+      "filePath": "C:\\Users\\rareb\\Desktop\\concurrency-primer.pdf",
+      "coverPath": "",
+      "description": "",
+      "format": "pdf",
+      "addedAt": "2025-06-11T23:14:59.2639404+05:00",
+      "lastOpenedAt": "2025-06-13T23:32:37.3633993+05:00"
+    },
+    {
+      "id": "1749665718099148000",
+      "title": "sql_nosql",
+      "author": "",
+      "filePath": "C:\\Users\\rareb\\Desktop\\sql_nosql.pdf",
+      "coverPath": "",
+      "description": "",
+      "format": "pdf",
+      "addedAt": "2025-06-11T23:15:18.099148+05:00",
+      "lastOpenedAt": "2025-06-11T23:39:23.1379589+05:00"
+    },
+    {
+      "id": "1749839513241226800",
+      "title": "nodirbek-resume",
+      "author": "",
+      "filePath": "C:\\Users\\rareb\\Documents\\nodirbek-resume.pdf",
+      "coverPath": "",
+      "description": "",
+      "format": "pdf",
+      "addedAt": "2025-06-13T23:31:53.2412268+05:00",
+      "lastOpenedAt": "2025-06-13T23:32:04.3907572+05:00"
+    }
+  ],
+  "path": ""
+}

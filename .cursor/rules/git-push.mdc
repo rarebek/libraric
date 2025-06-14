@@ -1,0 +1,6 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+push to the github repository. generate commit message yourself based on one latest change and push to the user given branch. if user doesnt give you branch name, default push to main branch, not master

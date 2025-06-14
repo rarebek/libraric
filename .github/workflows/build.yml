@@ -1,0 +1,76 @@
+# cross-platform wails build workflow
+
+name: wails build
+
+on:
+  push:
+    tags:
+      - 'v*' # run on every version tag
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        build:
+          - os: ubuntu-latest
+            platform: linux/amd64
+            artifact_name: libraric-linux
+          - os: windows-latest
+            platform: windows/amd64
+            artifact_name: libraric-windows
+          - os: macos-latest
+            platform: darwin/universal
+            artifact_name: libraric-macos
+
+    runs-on: ${{ matrix.build.os }}
+    env:
+      node_options: '--max-old-space-size=4096'
+
+    steps:
+      - name: checkout source
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: setup go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+
+      - name: setup node and pnpm
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+      - run: corepack enable
+
+      # install frontend deps
+      - run: pnpm install --frozen-lockfile
+        working-directory: frontend
+
+      # build with wails build action
+      - name: build wails app
+        uses: dAppServer/wails-build-action@v2.2
+        with:
+          build-name: libraric
+          build-platform: ${{ matrix.build.platform }}
+          go-version: '1.22'
+          package: false
+
+      # upload resulting binary as artifact
+      - name: upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.build.artifact_name }}
+          path: build/bin/**
+
+      - name: upload to github release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v1
+        with:
+          files: build/bin/**
+          generate_release_notes: true
+          draft: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
