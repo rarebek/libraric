@@ -51,7 +51,7 @@ jobs:
 
       # build with wails build action
       - name: build wails app
-        uses: dAppServer/wails-build-action@v2.2
+        uses: dAppServer/wails-build-action@main
         with:
           build-name: libraric
           build-platform: ${{ matrix.build.platform }}
