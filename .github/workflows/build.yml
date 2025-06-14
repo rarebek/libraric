@@ -42,16 +42,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
 
       - name: setup pnpm via corepack
         run: |
           corepack enable
           corepack prepare pnpm@8 --activate
-
-      # install frontend deps
-      - run: pnpm install --frozen-lockfile
-        working-directory: frontend
 
       # build with wails build action
       - name: build wails app
