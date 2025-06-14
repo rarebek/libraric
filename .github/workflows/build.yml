@@ -44,8 +44,11 @@ jobs:
           node-version: '20'
           cache: 'pnpm'
 
-      - name: install pnpm
-        run: npm install -g pnpm@8
+      - name: setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: false
 
       # install frontend deps
       - run: pnpm install --frozen-lockfile
